@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-import { cn } from "@/lib/utils";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+import Navbar from "@/components/navigation/navbar";
+import { cn } from "@/lib/utils";
 
 const inter = localFont({
   src: "./font/InterVf.ttf",
   variable: "--font-inter",
   weight: "100 200 300 400 500 700 800 900",
 });
+
 const spaceGrotesk = localFont({
   src: "./font/SpaceGroteskVF.ttf",
   variable: "--font-space-grotesk",
   weight: "300 400 500 700",
 });
+
 export const metadata: Metadata = {
   title: "DevFlow",
   description:
@@ -32,9 +33,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn("font-sans", inter.variable)}>
+    <html lang="en" suppressHydrationWarning>
+      {/* // inter.className to be applied on all elemnts */}
       <body
-        // inter.className to be applied on all elemnts
         className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
       >
         <ThemeProvider
@@ -43,6 +44,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>
