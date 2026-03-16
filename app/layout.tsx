@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -32,7 +33,6 @@ export const metadata: Metadata = {
 
 const RootLayout = async ({ children }: { children: React.ReactNode }) => {
   const session = await auth();
-  console.log(session);
   return (
     <html lang="en" suppressHydrationWarning>
       <SessionProvider session={session}>

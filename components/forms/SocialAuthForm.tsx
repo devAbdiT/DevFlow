@@ -5,6 +5,7 @@ import Image from "next/image";
 import { toast } from "sonner";
 import { Button } from "../ui/button";
 import { signIn } from "next-auth/react";
+// for client component
 import ROUTES from "@/constants/routes";
 
 const SocialAuthForm = () => {
@@ -15,7 +16,6 @@ const SocialAuthForm = () => {
     try {
       await signIn(provider, {
         callbackUrl: ROUTES.HOME,
-        redirect: false,
       });
     } catch (error) {
       console.log(error);
