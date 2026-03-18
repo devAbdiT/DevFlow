@@ -99,7 +99,7 @@ const AuthForm = <T extends FieldValues>({
           </FieldGroup>
         </form>
       </CardContent>
-      <CardFooter className="mt-5">
+      <CardFooter className="mt-5 flex flex-col">
         <Field orientation="horizontal">
           <Button
             type="button"
@@ -121,30 +121,30 @@ const AuthForm = <T extends FieldValues>({
               : buttonText}
           </Button>
         </Field>
+        <div className="mt-4">
+          {formType === "SIGN_IN" ? (
+            <p>
+              Don't have an account?{" "}
+              <Link
+                href={ROUTES.SIGN_UP}
+                className="paragraph-semibold primary-text-gradient"
+              >
+                Sign up
+              </Link>
+            </p>
+          ) : (
+            <p>
+              Already have an account?{" "}
+              <Link
+                href={ROUTES.SIGN_IN}
+                className="paragraph-semibold primary-text-gradient"
+              >
+                Sign in
+              </Link>
+            </p>
+          )}
+        </div>
       </CardFooter>
-      <div className="mt-4">
-        {formType === "SIGN_IN" ? (
-          <p>
-            Don't have an account?{" "}
-            <Link
-              href={ROUTES.SIGN_UP}
-              className="paragraph-semibold primary-text-gradient"
-            >
-              Sign up
-            </Link>
-          </p>
-        ) : (
-          <p>
-            Already have an account?{" "}
-            <Link
-              href={ROUTES.SIGN_IN}
-              className="paragraph-semibold primary-text-gradient"
-            >
-              Sign in
-            </Link>
-          </p>
-        )}
-      </div>
     </Fragment>
   );
 };
