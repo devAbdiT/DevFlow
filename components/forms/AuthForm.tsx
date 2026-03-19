@@ -50,7 +50,7 @@ const AuthForm = <T extends FieldValues>({
     resolver: zodResolver(schema),
     defaultValues: defaultValues as DefaultValues<T>,
   });
-
+  //resolver that connects the react hook form with the external validation library
   const handleSubmit: SubmitHandler<T> = async () => {};
   const buttonText = formType === "SIGN_IN" ? "Sign in" : "Sign up";
   return (

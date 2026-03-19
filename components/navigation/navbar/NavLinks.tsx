@@ -21,6 +21,7 @@ const NavLinks = ({
   return (
     <>
       {sidebarLinks.map((item) => {
+        console.log(item);
         const isActive =
           (pathname.includes(item.route) && item.route.length > 1) ||
           pathname === item.route;
