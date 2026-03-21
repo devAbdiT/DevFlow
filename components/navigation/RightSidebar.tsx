@@ -27,7 +27,7 @@ const popularTags = [
   },
   {
     _id: "3",
-    name: "typscript",
+    name: "typescript",
     questions: 150,
   },
   {
