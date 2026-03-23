@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import { techMap } from "@/constants/techMap";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
