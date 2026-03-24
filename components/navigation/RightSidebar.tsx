@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import TagCards from "../cards/TagCards";
+import TagCard from "../cards/TagCard";
 
 import ROUTES from "@/constants/routes";
 
@@ -70,7 +70,7 @@ const RightSidebar = () => {
         <h3 className="h3-bold text-dark200_light900">Popular Tags</h3>
         <div className="mt-7 flex flex-col gap-4">
           {popularTags.map(({ _id, name, questions }) => (
-            <TagCards
+            <TagCard
               key={_id}
               _id={_id}
               name={name}

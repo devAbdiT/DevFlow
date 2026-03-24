@@ -19,6 +19,7 @@ const LocalSearch = ({ route, imgSrc, placeholder, otherClasses }: Props) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const query = searchParams.get("query") || "";
+
   const [searchQuery, setSearchQuery] = useState(query);
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
@@ -40,7 +41,7 @@ const LocalSearch = ({ route, imgSrc, placeholder, otherClasses }: Props) => {
           router.push(newUrl, { scroll: false });
         }
       }
-    }, 300000);
+    }, 3000);
 
     return () => clearTimeout(delayDebounceFn);
   }, [searchQuery, router, route, searchParams, pathname]);
@@ -56,8 +57,8 @@ const LocalSearch = ({ route, imgSrc, placeholder, otherClasses }: Props) => {
       <Input
         type="text"
         placeholder="Search..."
-        value="Search Value"
-        onChange={() => {}}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
         className="paragraph-regular no-focus placeholder text-dark400_light700 border-none shadow-none outline-none"
       />
     </div>

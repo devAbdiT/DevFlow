@@ -82,6 +82,12 @@ export default [
       "no-undef": "off",
     },
   },
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    rules: {
+      "no-undef": "off", // TypeScript handles this
+    },
+  },
 ];
 
 // import path from "node:path";
