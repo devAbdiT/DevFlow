@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "stock.adobe.com",
+        hostname: "img.freepik.com",
         port: "",
       },
     ],

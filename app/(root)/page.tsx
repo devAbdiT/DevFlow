@@ -26,7 +26,8 @@ const questions = [
     author: {
       _id: "1",
       name: "John Doe",
-      image: "https://stock.adobe.com/search?k=stylish+avatar",
+      image:
+        "https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg",
     },
     upvotes: 10,
     answers: 5,
@@ -44,7 +45,8 @@ const questions = [
     author: {
       _id: "1",
       name: "John Doe",
-      image: "https://stock.adobe.com/search?k=stylish+avatar",
+      image:
+        "https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg",
     },
     upvotes: 10,
     answers: 5,

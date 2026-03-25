@@ -15,17 +15,9 @@ import { toast } from "sonner";
 import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { CardContent, CardFooter } from "@/components/ui/card";
 import {
   Field,
-  FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
@@ -60,7 +52,7 @@ const AuthForm = <T extends FieldValues>({
           id="form-rhf-input"
           onSubmit={form.handleSubmit(handleSubmit)}
           className="mt-10
-          space-y-6"
+           "
         >
           <FieldGroup>
             {Object.keys(defaultValues).map((field) => (

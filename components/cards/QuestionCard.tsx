@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import ROUTES from "@/constants/routes";
 import { getTimeStamp } from "@/lib/utils";
 import Link from "next/link";
@@ -36,7 +37,7 @@ const QuestionCard = ({
         <Metric
           imgUrl={author.image}
           alt={author.name}
-          value={author.value}
+          value={author.name}
           title={`asked ${getTimeStamp(createdAt)}`}
           href={ROUTES.PROFILE(author._id)}
           textStyles="body-medium text-dark400_light700"
