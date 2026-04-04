@@ -1,5 +1,4 @@
 import { model, models, Schema, Types } from "mongoose";
-import { string } from "zod";
 
 export interface IAccount {
   userId: Types.ObjectId;

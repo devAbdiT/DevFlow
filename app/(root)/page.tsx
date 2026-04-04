@@ -4,11 +4,7 @@ import HomeFilter from "@/components/HomeFilter/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
-import { difference } from "next/dist/build/utils";
 import Link from "next/link";
-import { title } from "process";
-import React from "react";
-import { is } from "zod/locales";
 
 interface SearchParams {
   searchParams: Promise<{ [Key: string]: SearchParams }>;
@@ -54,6 +50,7 @@ const questions = [
     createdAt: new Date(),
   },
 ];
+
 export default async function Home({ searchParams }: SearchParams) {
   const { query = "", filter = "" } = await searchParams;
   const filteredQuestions = questions.filter((question) => {
