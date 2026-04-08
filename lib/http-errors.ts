@@ -25,15 +25,18 @@ export class ValidationError extends RequestError {
     const formattedMessages = Object.entries(errors).map(
       ([field, messages]) => {
         const fieldName = field.charAt(0).toUpperCase() + field.slice(1);
+
         if (messages[0] === "Required") {
           return `${fieldName} is required`;
         } else {
-          return messages.join(" and ");
+          // ✅ ADDED field name and changed to comma join
+          return `${fieldName}: ${messages.join(", ")}`;
         }
       }
     );
 
-    return formattedMessages.join(", ");
+    // ✅ Changed to semicolon for better readability
+    return formattedMessages.join("; ");
   }
 }
 export class NotFoundError extends RequestError {

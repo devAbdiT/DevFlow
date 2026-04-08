@@ -53,16 +53,20 @@ const questions = [
     createdAt: new Date(),
   },
 ];
-const test = async () => {
-  try {
-    // await dbConnect();
-  } catch (error) {
-    return handleError;
-  }
-};
+// const test = async () => {
+//   try {
+//     // await dbConnect();
+//     // throw new Error("Test error");
+//     throw new ValidationError({
+//       title: ["Required"],
+//       tags: ['"JavaScript" is not a valid tag.'],
+//     });
+//   } catch (error) {
+//     return handleError(error);
+//   }
+// };
 
 export default async function Home({ searchParams }: SearchParams) {
-  await test();
   const { query = "", filter = "" } = await searchParams;
   const filteredQuestions = questions.filter((question) => {
     const matchesQuery = question.title
