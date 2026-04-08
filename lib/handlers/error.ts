@@ -56,3 +56,15 @@ const handleError = (error: unknown, responseType: ResponseType = "server") => {
 };
 
 export default handleError;
+
+// Error occurs in your app
+//          ↓
+//    handleError() catches it
+//          ↓
+//    Identifies error type (using instanceof)
+//          ↓
+//    Logs it (logger.error)
+//          ↓
+//    Formats response (formatResponse)
+//          ↓
+//    Returns to user
