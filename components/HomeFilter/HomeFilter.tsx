@@ -10,10 +10,6 @@ import { cn } from "@/lib/utils";
 const filters = [
   { name: "React", value: "react" },
   { name: "JavaScript", value: "javascript" },
-  // { name: "Newest", value: "newest" },
-  // { name: "Popular", value: "popular" },
-  // { name: "Unanswerd", value: "unanswered" },
-  // { name: "Recommended", value: "recommended" },
 ];
 const HomeFilter = () => {
   const router = useRouter();
