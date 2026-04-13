@@ -4,6 +4,7 @@ import HomeFilter from "@/components/HomeFilter/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
+import { api } from "@/lib/api";
 import handleError from "@/lib/handlers/error";
 import { ValidationError } from "@/lib/http-errors";
 import dbConnect from "@/lib/mongoose";
@@ -53,20 +54,24 @@ const questions = [
     createdAt: new Date(),
   },
 ];
-// const test = async () => {
-//   try {
-//     // await dbConnect();
-//     // throw new Error("Test error");
-//     throw new ValidationError({
-//       title: ["Required"],
-//       tags: ['"JavaScript" is not a valid tag.'],
-//     });
-//   } catch (error) {
-//     return handleError(error);
-//   }
-// };
+const test = async () => {
+  try {
+    // await dbConnect();
+    // throw new Error("Test error");
+    // throw new ValidationError({
+    //   title: ["Required"],
+    //   tags: ['"JavaScript" is not a valid tag.'],
+    // });
+    return await api.users.getAll();
+  } catch (error) {
+    return handleError(error);
+  }
+};
 
 export default async function Home({ searchParams }: SearchParams) {
+  const users = await test();
+
+  console.log(users);
   const { query = "", filter = "" } = await searchParams;
   const filteredQuestions = questions.filter((question) => {
     const matchesQuery = question.title

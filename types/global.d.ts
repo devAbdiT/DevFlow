@@ -19,7 +19,7 @@ interface Question {
   views: number;
 }
 
-type ActionRespose<T = null> = {
+type ActionResponse<T = null> = {
   success: boolean;
   data?: T;
   error?: {
@@ -33,3 +33,13 @@ type SuccessResponse<T = null> = ActionResponse<T> & { success: true };
 type ErrorResponse = ActionResponse<undefined> & { success: false };
 type APIErrorResponse = NextResponse<ErrorReponse>;
 type APIResponse<T = null> = NextResponse<SuccessResponse<T> | ErrorResponse>;
+
+// ActionResponse<T> (base)
+//        │
+//        ├── SuccessResponse<T> = ActionResponse<T> & { success: true }
+//        │         │
+//        │         └── APIResponse<T> = NextResponse<SuccessResponse<T> | ErrorResponse>
+//        │
+//        └── ErrorResponse = ActionResponse<undefined> & { success: false }
+//                  │
+//                  └── APIErrorResponse = NextResponse<ErrorResponse>

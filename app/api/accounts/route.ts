@@ -1,10 +1,10 @@
 /* eslint-disable import/order */
 import Account from "@/database/account.model";
 import handleError from "@/lib/handlers/error";
-import { ForbiddenError, ValidationError } from "@/lib/http-errors";
+import { ForbiddenError } from "@/lib/http-errors";
 import dbConnect from "@/lib/mongoose";
 import { AccountSchema } from "@/lib/validations";
-import { User } from "lucide-react";
+
 import { NextResponse } from "next/server";
 
 export async function GET() {
