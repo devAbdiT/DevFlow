@@ -1,4 +1,5 @@
 /* eslint-disable import/order */
+import { auth } from "@/auth";
 import QuestionCard from "@/components/cards/QuestionCard";
 import HomeFilter from "@/components/HomeFilter/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
@@ -54,24 +55,23 @@ const questions = [
     createdAt: new Date(),
   },
 ];
-const test = async () => {
-  try {
-    // await dbConnect();
-    // throw new Error("Test error");
-    // throw new ValidationError({
-    //   title: ["Required"],
-    //   tags: ['"JavaScript" is not a valid tag.'],
-    // });
-    return await api.users.getAll();
-  } catch (error) {
-    return handleError(error);
-  }
-};
+// const test = async () => {
+//   try {
+//     // await dbConnect();
+//     // throw new Error("Test error");
+//     // throw new ValidationError({
+//     //   title: ["Required"],
+//     //   tags: ['"JavaScript" is not a valid tag.'],
+//     // });
+//     return await api.users.getAll();
+//   } catch (error) {
+//     return handleError(error);
+//   }
+// };
 
 export default async function Home({ searchParams }: SearchParams) {
-  const users = await test();
-
-  console.log(users);
+  const session = await auth();
+  console.log("Session: ", session);
   const { query = "", filter = "" } = await searchParams;
   const filteredQuestions = questions.filter((question) => {
     const matchesQuery = question.title

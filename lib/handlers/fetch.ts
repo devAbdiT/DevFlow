@@ -39,10 +39,7 @@ export async function fetchHandler<T>(
     clearTimeout(id);
 
     if (!response.ok) {
-      throw new RequestError(
-        response.status,
-        `HTTP eerror: ${response.status}`
-      );
+      throw new RequestError(response.status, `HTTP error: ${response.status}`);
     }
     return await response.json();
   } catch (err) {
