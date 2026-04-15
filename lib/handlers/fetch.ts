@@ -22,7 +22,7 @@ export async function fetchHandler<T>(
 
   const defaultHeaders: HeadersInit = {
     "Content-Type": "application/json",
-    Accept: "applictaion/json",
+    Accept: "application/json",
   };
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), timeout);
@@ -39,6 +39,7 @@ export async function fetchHandler<T>(
     clearTimeout(id);
 
     if (!response.ok) {
+      // Checks for HTTP success (200-299)
       throw new RequestError(response.status, `HTTP error: ${response.status}`);
     }
     return await response.json();
