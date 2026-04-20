@@ -64,6 +64,8 @@ const AuthForm = <T extends FieldValues>({
   //   }
   // };
 
+  // SubmitHandler<T> Function receives correctly typed form data
+
   const handleSubmit: SubmitHandler<T> = async (data) => {
     console.log("🔵 FORM SUBMIT STARTED. Data:", data); // ← ADD THIS
 
