@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from "next-themes";
-import { Toaster } from "sonner";
+import { Toaster } from "@/components/ui/sonner";
 
 import Navbar from "@/components/navigation/navbar";
 import { cn } from "@/lib/utils";

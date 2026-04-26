@@ -5,9 +5,9 @@ import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 
 import { IAccount, IAccountDoc } from "./database/account.model";
+import { IUserDoc } from "./database/user.model";
 import { api } from "./lib/api";
 import { SignInSchema } from "./lib/validations";
-import { IUserDoc } from "./database/user.model";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -60,6 +60,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       session.user.id = token.sub as string;
       return session;
     },
+    //The session callback is where you DECIDE what user data to send to the client.
+
+    //The token is signed and encrypted. The session is plain JSON sent to the browser.
+
     async jwt({ token, account }) {
       if (account) {
         const { data: existingAccount, success } =
@@ -77,6 +81,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
       return token;
     },
+
+    //Create the User and Account in your database (first time)
+    //Link the OAuth account to an existing User (if returning)
     async signIn({ user, profile, account }) {
       if (account?.type === "credentials") return true;
       if (!account || !user) return false;

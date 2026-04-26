@@ -22,7 +22,7 @@ const MobileNavigation = async () => {
   const userId = session?.user?.id;
   return (
     <Sheet>
-      <SheetTrigger asChild>
+      <SheetTrigger aschild="true">
         <Image
           src="/icons/hamburger.svg"
           width={36}
@@ -48,7 +48,7 @@ const MobileNavigation = async () => {
           </p>
         </Link>
         <div className="no=scrollbar flex h-[calc(100vh-80px)] flex-col justify-between overflow-y-auto">
-          <SheetClose asChild>
+          <SheetClose aschild>
             <section className="flex h-full flex-col gap-6 pt-16">
               <NavLinks isMobileNav={true} />
             </section>
