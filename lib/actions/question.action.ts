@@ -174,7 +174,7 @@ export async function editQuestion(
   }
 }
 
-export async function getQuestio(
+export async function getQuestion(
   params: GetQuestionParams
 ): Promise<ActionResponse<Question>> {
   const validationResult = await action({
@@ -198,6 +198,6 @@ export async function getQuestio(
 
     return { success: true, data: JSON.parse(JSON.stringify(question)) };
   } catch (error) {
-    return handleError(error) as Response;
+    return handleError(error) as ErrorResponse;
   }
 }
