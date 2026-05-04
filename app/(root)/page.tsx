@@ -77,6 +77,6 @@ export default async function Home({ searchParams }: SearchParams) {
           </div>
         )}
       />
-    
+    </>
   );
 }
