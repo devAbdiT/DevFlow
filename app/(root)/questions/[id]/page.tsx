@@ -4,14 +4,17 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import React from "react";
 
-import View from "../view";
-
+//
 import TagCard from "@/components/cards/TagCard";
 import Preview from "@/components/editor/Preview";
 import Metric from "@/components/Metric";
 import UserAvatar from "@/components/UserAvatar";
 import ROUTES from "@/constants/routes";
-import { getQuestion, getQuestions } from "@/lib/actions/question.action";
+import {
+  getQuestion,
+  getQuestions,
+  incrementViews,
+} from "@/lib/actions/question.action";
 import { formatNumber, getTimeStamp } from "@/lib/utils";
 
 // const sampleQuestion = {
@@ -97,13 +100,17 @@ import { formatNumber, getTimeStamp } from "@/lib/utils";
 
 const QuestionDetails = async ({ params }: RouteParams) => {
   const { id } = await params;
-  const { success, data: question } = await getQuestion({ questionId: id });
+  const [_, { success, data: question }] = await Promise.all([
+    await incrementViews({ questionId: id }),
+    await getQuestion({ questionId: id }),
+  ]);
+  // await incrementViews({ questionId: id });
 
   if (!success || !question) return redirect("/404");
   const { title, author, createdAt, answers, views, tags, content } = question;
   return (
     <>
-      <View questionId={id} />
+      {/* <View questionId={id} /> */}
       <div className="flex-start w-full flex-col">
         <div className="flex w-full flex-col-reverse justify-between">
           <div className="flex items-center justify-start gap-1">
