@@ -9,10 +9,13 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ai-sdk/google": "^4.0.0",
+    "@ai-sdk/openai": "^4.0.0",
     "@base-ui/react": "^1.2.0",
     "@hookform/resolvers": "^5.2.2",
     "@mdxeditor/editor": "^3.53.1",
     "@types/bcryptjs": "^2.4.6",
+    "ai": "^7.0.2",
     "bcryptjs": "^3.0.3",
     "bright": "^1.0.0",
     "class-variance-authority": "^0.7.1",
